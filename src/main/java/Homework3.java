@@ -1,9 +1,12 @@
+import java.util.Scanner;
+
 public class Homework3 {
 
     public static void main(String[] args) {
 
         String[][] schedule= new String[7][2];
         int i,j;
+        String InputDay, InputActivity;
 
         schedule[0][0]="Monday";
         schedule[0][1]="Do HomeWork for Tuesday";
@@ -20,8 +23,27 @@ public class Homework3 {
         schedule[6][0]="Sunday";
         schedule[6][1]="Relax";
 
+        Scanner Input = new Scanner(System.in);
+
+        do
+            {
+            int check;
 
 
+            System.out.print("Please, input the day of the week: ");
+            InputDay= Input.nextLine();
+            check=0;
 
+            for (i=0;i<7;i++)
+            {
+             if(InputDay.compareToIgnoreCase(schedule[i][0])==0)
+             {
+                 System.out.printf("Your tasks for %s: %s\n",schedule[i][0], schedule[i][1]);
+                 check++;
+             }
+            }
+            if (check==0 && InputDay.compareToIgnoreCase("exit")!=0) System.out.print("Sorry, I don't understand you, ");
+
+            }while(InputDay.compareToIgnoreCase("exit")!=0);
     }
 }
